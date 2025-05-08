@@ -1,0 +1,38 @@
+version: "3.8"
+services:
+  db:
+    image: postgres:latest
+    container_name: postgres_db
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: admin
+      POSTGRES_DB: autos
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - autos_network
+
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: autos_api_rest
+    depends_on:
+      - db
+    environment:
+      ConnectionStrings__DefaultConnection: "Host=db;Database=autos;Username=admin;Password=admin"
+    ports:
+      - "8080:8080"
+      - "8081:8081"
+    networks:
+      - autos_network
+    command: [ "sh", "-c", "dotnet ef database update && dotnet autos-api-rest.dll" ]
+
+volumes:
+  postgres_data:
+
+networks:
+  autos_network:
+    driver: bridge

@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "autos_api_rest.Tests": {
+      "commandName": "Project",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Testing"
+      }
+    }
+  }
+}

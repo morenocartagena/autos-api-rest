@@ -1,0 +1,47 @@
+# Visual Studio
+.vs/
+
+# Build outputs
+bin/
+obj/
+
+# User-specific files
+*.user
+*.suo
+*.rsuser
+*.psess
+*.vsp
+
+# Logs
+*.log
+
+# NuGet packages
+packages/
+*.nupkg
+project.lock.json
+
+# Entity Framework migrations
+
+# Rider & JetBrains
+.idea/
+
+# ASP.NET specific
+wwwroot/
+
+# Secrets
+secrets.json
+
+# Docker
+docker-compose.override.yml
+
+# Debugging
+*.pdb
+*.ilk
+*.dbg
+
+# Compiled files
+*.dll
+*.exe
+
+# Node.js dependencies (if using frontend frameworks)
+node_modules/
